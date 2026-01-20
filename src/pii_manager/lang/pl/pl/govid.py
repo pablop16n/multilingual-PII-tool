@@ -13,7 +13,7 @@ from pii_manager import PiiEnum, PiiEntity
 from pii_manager.helper import BasePiiTask
 
 # regex for PESEL
-_PESEL_PATTERN = r"\b\d{2}(0[1-9]|1[0-2]|2[1-9]|3[0-2]|4[1-2]|5[1-2]|6[1-2]|8[1-2])\d{2}\d{3}\d\b"
+_PESEL_PATTERN = r"\b\d{11}\b"
 
 
 

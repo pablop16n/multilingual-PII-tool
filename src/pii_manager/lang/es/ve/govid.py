@@ -11,7 +11,7 @@ from pii_manager import PiiEnum, PiiEntity
 from pii_manager.helper import BasePiiTask
 
 # regex for CI
-_CI_PATTERN = r"\b[VE]-\d{7,8}\b"
+_CI_PATTERN = r"\b[VE][- \.]\d{1,2}\.\d{3}\.\d{3}\b"
 
 
 class VenezuelanCI(BasePiiTask):

@@ -11,7 +11,7 @@ from pii_manager import PiiEnum, PiiEntity
 from pii_manager.helper import BasePiiTask
 
 # regex for CIP
-_CIP_PATTERN = r"\b\d-\d{3}-\d{4}\b"
+_CIP_PATTERN = r"\b\d-\d{3}-\d{3,4}\b"
 
 
 class PanamanianCIP(BasePiiTask):

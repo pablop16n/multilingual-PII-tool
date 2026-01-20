@@ -11,7 +11,7 @@ from pii_manager import PiiEnum, PiiEntity
 from pii_manager.helper import BasePiiTask
 
 # regex for license plate
-_LICENSE_PLATE_PATTERN = r"\b[A-Z]{1,3}\s?[A-Z0-9]{4,5}\b"
+_LICENSE_PLATE_PATTERN = r"\b[A-Z]{1,3}\s?[0-9]{4,5}\b"
 
 
 
@@ -22,7 +22,7 @@ class PolishLicensePlate(BasePiiTask):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         # Compile the regex
-        self.license_plate_pattern = re.compile(_LICENSE_PLATE_PATTERN, flags=re.X | re.IGNORECASE)
+        self.license_plate_pattern = re.compile(_LICENSE_PLATE_PATTERN, flags=re.X)
 
     def find(self, doc: str) -> Iterable[PiiEntity]:
         # license plate

@@ -13,7 +13,7 @@ from pii_manager import PiiEnum, PiiEntity
 from pii_manager.helper import BasePiiTask
 
 # regex for CI
-_CI_PATTERN = r"\b\d{3}-\d{7}-\d\b"
+_CI_PATTERN = r"\b([0-2]\d|30)[0-5]\d{7}\b"
 
 
 

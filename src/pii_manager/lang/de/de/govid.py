@@ -16,7 +16,7 @@ from pii_manager.helper import BasePiiTask
 # regex for IDNR
 _IDNR_PATTERN = r"\b\d{11}\b"
 # regex for PWN
-_PWN_PATTERN = r"\b[A-Z0-9]{9,10}\b"
+_PWN_PATTERN = r"\b[A-Z]{9,10}\b"
 
 
 

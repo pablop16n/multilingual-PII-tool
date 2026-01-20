@@ -12,7 +12,7 @@ from pii_manager import PiiEnum, PiiEntity
 from pii_manager.helper import BasePiiTask
 
 # regex for TAJ
-_TAJ_PATTERN = r"\b\d{9}\b"
+_TAJ_PATTERN = r"\b\d{3}\s?\d{3}\s?\d{3}\b"
 
 
 class HungarianTAJ(BasePiiTask):

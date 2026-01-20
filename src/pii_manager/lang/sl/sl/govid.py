@@ -13,7 +13,7 @@ from pii_manager import PiiEnum, PiiEntity
 from pii_manager.helper import BasePiiTask
 
 # regex for EMSO
-_EMSO_PATTERN = r"\b(0[1-9]|[12]\d|3[01])(0[1-9]|1[0-2])\d{3}(5[0-9])\d{3}\d\b"
+_EMSO_PATTERN = r"\b\d{13}\b"
 
 
 class SlovenianEMSO(BasePiiTask):

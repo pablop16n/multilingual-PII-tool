@@ -13,7 +13,7 @@ from pii_manager import PiiEnum, PiiEntity
 from pii_manager.helper import BasePiiTask
 
 # regex for RUT
-_RUT_PATTERN = r"\b\d{7,8}-?[0-9Kk]\b"
+_RUT_PATTERN = r"\b\d{2}[ \.]\d{3}[ \.]\d{3}-[0-9Kk]\b"
 
 
 class ChileanRUT(BasePiiTask):

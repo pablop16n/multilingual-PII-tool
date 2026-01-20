@@ -7,13 +7,12 @@ import re
 
 from typing import Iterable
 
-from stdnum.be import nn
 
 from pii_manager import PiiEnum, PiiEntity
 from pii_manager.helper import BasePiiTask
 
 # regex for NN
-_NN_PATTERN = r"\b\d{6}-?\d{3}-?\d{2}\b"
+_NN_PATTERN = r"\b\d{2}[\. ](0\d|1[012])[\. ]([0-2]\d|3[01])-?\d{3}[\. ]\d{2}\b"
 
 
 class BelgianNN(BasePiiTask):
@@ -33,14 +32,13 @@ class BelgianNN(BasePiiTask):
         # NN
         for item in self.nn_pattern.finditer(doc):
             item_value = item.group()
-            if nn.is_valid(item_value):
-                yield PiiEntity(
-                    PiiEnum.GOV_ID,
-                    item.start(),
-                    item_value,
-                    country=self.country,
-                    name=" Belgian NN",
-                )
+            yield PiiEntity(
+                PiiEnum.GOV_ID,
+                item.start(),
+                item_value,
+                country=self.country,
+                name=" Belgian NN",
+            )
 
 # Task descriptor
 PII_TASKS = [(PiiEnum.GOV_ID, BelgianNN)]

@@ -13,7 +13,7 @@ from pii_manager import PiiEnum, PiiEntity
 from pii_manager.helper import BasePiiTask
 
 # regex for ASMENS
-_ASMENS_PATTERN = r"\b[12]\d{2}(0[1-9]|1[0-2]|[2-9]\d)\d{6}\d{2}\b"
+_ASMENS_PATTERN = r"\b[1-6]\d{10}\b"
 
 class LithuanianASMENS(BasePiiTask):
     """

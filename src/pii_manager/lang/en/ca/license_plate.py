@@ -28,9 +28,9 @@ class CanadianLicensePlate(BasePiiTask):
     def find(self, doc: str) -> Iterable[PiiEntity]:
         # license plate
         for item in self.license_plate_pattern.finditer(doc):
-            if not re.match(_REGIONAL_PLATE_PATTERN, item.group(1)):
-                continue
             item_value = item.group()
+            if not re.match(_REGIONAL_PLATE_PATTERN, item_value):
+                continue
             yield PiiEntity(
                 PiiEnum.LICENSE_PLATE,
                 item.start(),

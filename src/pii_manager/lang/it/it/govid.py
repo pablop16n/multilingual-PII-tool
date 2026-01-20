@@ -13,7 +13,7 @@ from pii_manager import PiiEnum, PiiEntity
 from pii_manager.helper import BasePiiTask
 
 # regex for CF
-_CF_PATTERN = r"\b[A-Z]{6}\d{2}[A-Z]\d{2}[A-Z0-9]{4}[A-Z0-9]{2}\b"
+_CF_PATTERN = r"\b[A-Za-z]{6}[0-9]{2}[A-Za-z]{1}[0-9]{2}[A-Za-z]{1}[0-9]{3}[A-Za-z]{1}\b"
 
 
 class ItalianCF(BasePiiTask):
