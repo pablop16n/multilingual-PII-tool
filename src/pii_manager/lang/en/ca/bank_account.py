@@ -10,7 +10,7 @@ from pii_manager import PiiEnum, PiiEntity
 from pii_manager.helper import BasePiiTask
 
 # regex for Canadian bank account numbers
-_BA_PATTERN = r"\b[A-Za-z0-9]{6,30}\b"
+_BA_PATTERN = r"\b(\d{3}-\d{5}-\d{7})|(\d{5}-\d{3}-\d{7})\b"
 
 
 class CanadianBankAccount(BasePiiTask):

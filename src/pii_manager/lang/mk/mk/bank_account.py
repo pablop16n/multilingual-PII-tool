@@ -10,7 +10,7 @@ from pii_manager import PiiEnum, PiiEntity
 from pii_manager.helper import BasePiiTask
 
 # regex for North Macedonian bank account numbers
-_BA_PATTERN = r"\bMK[0-9]{2}[A-Z0-9]{10}[0-9]{2}\b"
+_BA_PATTERN = r"\bMK[0-9]{2}[0-9]{15}\b"
 
 
 class NorthMacedonianBankAccount(BasePiiTask):

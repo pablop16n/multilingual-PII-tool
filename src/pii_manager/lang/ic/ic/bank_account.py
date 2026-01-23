@@ -10,7 +10,7 @@ from pii_manager import PiiEnum, PiiEntity
 from pii_manager.helper import BasePiiTask
 
 # regex for Icelandic bank account numbers
-_BA_PATTERN = r"\bIS[0-9]{2}[0-9]{24}\b"
+_BA_PATTERN = r"\bIS[0-9]{2}[0-9]{22}\b"
 
 
 class IcelandicBankAccount(BasePiiTask):

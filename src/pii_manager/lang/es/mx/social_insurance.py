@@ -1,5 +1,5 @@
 """
-Australian frequent bank account numbers
+Mexican Social Insurance numbers NSS
 """
 
 import re
@@ -9,34 +9,33 @@ from typing import Iterable
 from pii_manager import PiiEnum, PiiEntity
 from pii_manager.helper import BasePiiTask
 
-# regex for Australian bank account numbers
-_BA_PATTERN = r"\b[A-Za-z0-9]{6,30}\b"
+# regex for Mexican Social Insurance
+_SI_PATTERN = r"\b\d{2}-\d{2}-\d{2}-\d{4}-\d\b"
 
 
-class AustralianBankAccount(BasePiiTask):
+class MexicanSocialInsurance(BasePiiTask):
     """
-    Australian frequent bank account numbers recognize
+    Mexican Social Insurance numbers NSS recognize
     """
 
-    pii_name = "Australian Bank Account"
-
+    pii_name = "Mexican Social Insurance"
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         # Compile the regex
-        self.ba_pattern = re.compile(_BA_PATTERN, flags=re.X)
+        self.si_pattern = re.compile(_SI_PATTERN, flags=re.X)
 
 
     def find(self, doc: str) -> Iterable[PiiEntity]:
-        # Bank Account
-        for item in self.ba_pattern.finditer(doc):
+        # Social Insurance
+        for item in self.si_pattern.finditer(doc):
             item_value = item.group()
             yield PiiEntity(
                 PiiEnum.GOV_ID,
                 item.start(),
                 item_value,
                 country=self.country,
-                name="Australian Bank Account",
+                name="Mexican Social Insurance",
             )
 
 # Task descriptor
-PII_TASKS = [(PiiEnum.BANK_ACCOUNT, AustralianBankAccount)]
+PII_TASKS = [(PiiEnum.GOV_ID, MexicanSocialInsurance)]

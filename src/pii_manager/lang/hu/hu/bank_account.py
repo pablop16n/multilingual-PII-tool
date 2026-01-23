@@ -10,7 +10,7 @@ from pii_manager import PiiEnum, PiiEntity
 from pii_manager.helper import BasePiiTask
 
 # regex for Hungarian bank account numbers
-_BA_PATTERN = r"\bHU[0-9]{2}[0-9]{24}\b"
+_BA_PATTERN = r"\b(HU[0-9]{2}[0-9]{24})|(\d{8}-\d{8}-\d{8})\b"
 
 
 class HungarianBankAccount(BasePiiTask):

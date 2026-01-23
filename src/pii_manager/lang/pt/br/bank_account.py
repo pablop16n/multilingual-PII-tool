@@ -1,5 +1,5 @@
 """
-Polish frequent bank account numbers
+Brazilian frequent bank account numbers
 """
 
 import re
@@ -9,17 +9,16 @@ from typing import Iterable
 from pii_manager import PiiEnum, PiiEntity
 from pii_manager.helper import BasePiiTask
 
-# regex for Polish bank account numbers
-_BA_PATTERN = r"\bBR[0-9]{2}[0-9]{23}[A-Z]{1}[A-Z0-9]{1}\b"
+# regex for Brazilian bank account numbers
+_BA_PATTERN = r"\b(BR[0-9]{2}[0-9]{23}[A-Z]{1}[A-Z0-9]{1})|(\d{12}-\d)\b"
 
 
-class PolishBankAccount(BasePiiTask):
+class BrazilianBankAccount(BasePiiTask):
     """
-    Polish frequent bank account numbers recognize
+    Brazilian frequent bank account numbers recognize
     """
 
-    pii_name = "Polish Bank Account"
-
+    pii_name = "Brazilian Bank Account"
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         # Compile the regex
@@ -35,8 +34,8 @@ class PolishBankAccount(BasePiiTask):
                 item.start(),
                 item_value,
                 country=self.country,
-                name="Polish Bank Account",
+                name="Brazilian Bank Account",
             )
 
 # Task descriptor
-PII_TASKS = [(PiiEnum.BANK_ACCOUNT, PolishBankAccount)]
+PII_TASKS = [(PiiEnum.BANK_ACCOUNT, BrazilianBankAccount)]
