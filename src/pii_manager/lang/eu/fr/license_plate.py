@@ -1,39 +1,8 @@
 """
 French license plate
+Imported from the central definition in pii_manager.lang.fr.fr.license_plate
 """
 
-import re
+from pii_manager.lang.fr.fr.license_plate import PII_TASKS, FrenchLicensePlate, _LICENSE_PLATE_PATTERN
 
-from typing import Iterable
-
-
-from pii_manager import PiiEnum, PiiEntity
-from pii_manager.helper import BasePiiTask
-
-# regex for license plate
-_LICENSE_PLATE_PATTERN = r"\b[A-HJ-NP-TV-Z]{2}-\d{3}-[A-HJ-NP-TV-Z]{2}\b"
-
-
-
-class FrenchLicensePlate(BasePiiTask):
-    """
-    French license plate numbers recognize
-    """
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
-        # Compile the regex
-        self.license_plate_pattern = re.compile(_LICENSE_PLATE_PATTERN, flags=re.X | re.IGNORECASE)
-
-    def find(self, doc: str) -> Iterable[PiiEntity]:
-        # license plate
-        for item in self.license_plate_pattern.finditer(doc):
-            item_value = item.group()
-            yield PiiEntity(
-                PiiEnum.LICENSE_PLATE,
-                item.start(),
-                item_value,
-                country=self.country,
-                name="French license plate",
-            )
-# Task descriptor
-PII_TASKS = [(PiiEnum.LICENSE_PLATE, FrenchLicensePlate)]
+__all__ = ['PII_TASKS', 'FrenchLicensePlate', '_LICENSE_PLATE_PATTERN']
