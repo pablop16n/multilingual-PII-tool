@@ -31,7 +31,7 @@ class BulgarianBankAccount(BasePiiTask):
         for item in self.ba_pattern.finditer(doc):
             item_value = item.group()
             yield PiiEntity(
-                PiiEnum.GOV_ID,
+                PiiEnum.BANK_ACCOUNT,
                 item.start(),
                 item_value,
                 country=self.country,
