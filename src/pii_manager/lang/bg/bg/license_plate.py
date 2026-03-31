@@ -11,7 +11,7 @@ from pii_manager import PiiEnum, PiiEntity
 from pii_manager.helper import BasePiiTask
 
 # regex for license plate
-_LICENSE_PLATE_PATTERN = r"\b(C|CA|CB|PB|B|A|EH) ?\d{4} ?[ABCEHKMOPTXY]{2}\b"
+_LICENSE_PLATE_PATTERN = r"\b(C|CA|CB|PB|B|A|EH)[ ]?\d{4}[ ]?[ABCEHKMOPTXY]{2}\b"
 
 
 
